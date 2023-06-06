@@ -1,63 +1,61 @@
-create table PAIS (
-    idpais int not null,
-    nombre varchar(100),
-    continente varchar(100),
-    cant_clubs int
-	constraint pk_idpais primary key (idpais),
-);
+-- Database: Campeonato_Quidditch2
 
-create table EQUIPO (
-    idequipo int not null,
-    camp_mund varchar(100),
-    jugada_esp varchar(100),
-    copas_win int,
-    num_jugadores int
-	constraint pk_idequipo primary key(idequipo),
-);
+-- DROP DATABASE IF EXISTS "Campeonato_Quidditch2";
 
-create table PARTICIPANTE (
+CREATE DATABASE "Campeonato_Quidditch2"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Spanish_Mexico.1252'
+    LC_CTYPE = 'Spanish_Mexico.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+	
+	
+	create table PARTICIPANTE (
     curp int not null,
     nombre_comp varchar(100),
-    nacionalidad varchar(100) not null,
-	estado varchar(100) not null,
+    nacionalidad varchar(100),
     edad int,
     altura int,
-    peso int
-	constraint pk_curp primary key (curp),
+    peso int,
+    constraint pk_curp primary key (curp)
 );
 
 create table JUGADOR (
-    equipo varchar(100) not null,
+    equipo varchar(100),
     posicion varchar(100),
     nivel int
 );
 
 create table ARBITRO (
     direccion varchar(100),
-    num_tel int
+    nul_tel int
 );
 
-create table HOTEL (
+create table HOTEL(
     rfc int not null,
     num_tel int,
     direccion varchar(100),
     fecha_aloj varchar(100),
-	constraint pk_rfc primary key (rfc),
+    constraint pk_rfc primary key (rfc)
 );
 
 create table ESTADIO (
-	qhotel varchar(100) not null,
+	qhotel varchar(100),
     capacidad int
 );
 
 create table PARTIDO (
     codigo int not null,
-    equipo_win varchar(100) not null
+    equipo_win varchar(100),
+    constraint pk_codigo primary key (codigo) 
 );
 
 create table MOV_PROHIBIDOS (
 	idmov int not null,
 	nombre_mov varchar(100),
-	cant_mov int
-	constraint pk_idmov primary key (idmov),
+	cant_mov int,
+	constraint pk_idmov primary key (idmov)
 );
