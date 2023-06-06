@@ -1,56 +1,77 @@
-CREATE TABLE PAIS (
-    ID INT PRIMARY KEY,
-    nombre VARCHAR(100),
-    continente VARCHAR(100),
-    cant_clubs INT
+	
+create table PAIS (
+    idpais int not null,
+    nombre varchar(100) not null,
+    continente varchar(100),
+    cant_clubs int,
+    constraint pk_idpais primary key (idpais)
 );
 
-CREATE TABLE EQUIPO (
-    ID INT PRIMARY KEY,
-    camp_mund VARCHAR(100),
-    jugada_esp VARCHAR(100),
-    copas_win INT,
-    num_jugadores INT
+create table EQUIPO (
+    idequipo int not null,
+    nombre varchar(100) not null,
+    camp_mund varchar(100),
+    jugada_esp varchar(100),
+    copas_win int,
+    num_jugadores int,
+    constraint pk_idequipo primary key (idequipo)
 );
 
-CREATE TABLE PARTICIPANTE (
-    CURP INT PRIMARY KEY,
-    nombre_comp VARCHAR(100),
-    nacionalidad VARCHAR(100),
-    edad INT,
-    altura INT,
-    peso INT
+create table PARTICIPANTE (
+    curp int not null,
+    nombre_comp varchar(100) not null,
+    nacion varchar(100) not null,
+    edad int,
+    altura int,
+    peso int,
+    constraint pk_curp primary key (curp),
+    foreign key fk_nacion references PAIS(nombre)
 );
 
-CREATE TABLE JUGADOR (
-    equipo VARCHAR(100),
-    posicion: VARCHAR(100),
-    nivel INT
+create table JUGADOR (
+    equipo varchar(100) not null,
+    posicion varchar(100),
+    nivel int,
+    foreign key fk_equipo references EQUIPO(nombre)
+)
+    INHERITS (PARTICIPANTE);
+
+create table ARBITRO (
+    direccion varchar(100),
+    nul_tel int
+)
+    INHERITS (PARTICIPANTE);
+
+create table HOTEL(
+    rfc int not null,
+    nhotel varchar(100) not null,
+    num_tel int,
+    direccion varchar(100),
+    fecha_aloj varchar(100),
+    constraint pk_rfc primary key (rfc)
 );
 
-CREATE TABLE ARBITRO (
-    direccion VARCHAR(100),
-    nul_tel INT
+create table ESTADIO (
+    qhotel varchar(100) not null,
+    nestadio varchar(100) not null,
+    capacidad int,
+    foreign key fk_qhotel references HOTEL(nhotel)
 );
 
-CREATE TABLE HOTEL (
-    RFC INT PRIMARY KEY,
-    num_tel INT,
-    direccion VARCHAR(100),
-    fecha_aloj: VARCHAR(100)
+create table PARTIDO (
+    codigo int not null,
+    arbitro varchar (100),
+    qestadio varchar(100),
+    equipo_win varchar(100),
+    constraint pk_codigo primary key (codigo),
+    foreign key fk_qestadio references ESTADIO(nestadio),
+    foreign key fk_equipowin references EQUIPO(nombre),
+    foreign key fk_arbitro references ARBITRO(nombre_comp)
 );
 
-CREATE TABLE ESTADIO (
-    capacidad INT
-);
-
-CREATE TABLE PARTIDO (
-    codigo INT PRIMARY KEY,
-    equipo_win VARCHAR(100)
-);
-
-CREATE TABLE MOV_PROHIBIDOS (
-	ID INT PRIMARY KEY,
-	nombre_mov VARCHAR(100),
-	cant_mov INT
+create table MOV_PROHIBIDOS (
+	idmov int primary key,
+	nombre_mov varchar(100),
+	cant_mov int,
+	constraint pk_idmov primary key (idmov)
 );
