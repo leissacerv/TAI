@@ -29,14 +29,15 @@ create table PARTICIPANTE (
 );
 
 create table JUGADOR (
-    equipo int not null,
+    fk_equipo int not null,
     posicion varchar(100),
     nivel int,
-    foreign key fk_equipo references EQUIPO(idequipo)
+    foreign key (fk_equipo) references EQUIPO(idequipo)
 )
     INHERITS (PARTICIPANTE);
 
 create table ARBITRO (
+    idarbitro int not null,
     direccion varchar(100),
     nul_tel int
 )
@@ -53,25 +54,26 @@ create table HOTEL(
 
 create table ESTADIO (
     idestadio int not null,
-    qhotel int not null,
+    fk_qhotel int not null,
     nestadio varchar(100) not null,
     capacidad int,
-    foreign key fk_qhotel references HOTEL(rfc)
+    constraint pf_idestadio primary key (idestadio),
+    foreign key (fk_qhotel) references HOTEL(rfc)
 );
 
 create table PARTIDO (
     codigo int not null,
-    arbitro varchar (100),
-    qestadio int not null,
-    equipo_win int not null,
+    fk_arbitro varchar (100),
+    fk_qestadio int not null,
+    fk_equipo_win int not null,
     constraint pk_codigo primary key (codigo),
-    foreign key fk_qestadio references ESTADIO(idestadio),
-    foreign key fk_equipowin references EQUIPO(idequipo),
-    foreign key fk_arbitro references ARBITRO(curp)
+    foreign key (fk_qestadio) references ESTADIO(idestadio),
+    foreign key (fk_equipo_win) references EQUIPO(idequipo),
+    foreign key (fk_arbitro) references ARBITRO(idarbitro)
 );
 
 create table MOV_PROHIBIDOS (
-	idmov int primary key,
+	idmov int not null,
 	nombre_mov varchar(100),
 	cant_mov int,
 	constraint pk_idmov primary key (idmov)
