@@ -8,23 +8,34 @@ public class Main
     {
         MiBD conexion =  new MiBD();
         ResultSet result;
-        int id;
-        String nombre,ap_pat,ap_mat;
+        Jugador player = new Jugador();  
 
-        result = conexion.getQuery("select * from personas");
+        result = conexion.getQuery("select * from JUGADOR;");
         try
         {
             while(result.next())
             {
-                id = result.getInt("Id");
-                nombre = result.getString("Nombre");
-                ap_pat = result.getString("Ap_Pat");
-                ap_mat = result.getString("Ap_Mat");
+                player.setCurp(result.getString("curp"));
+                player.setNombre_comp(result.getString("nombre_comp"));
+                player.setFk_idpais(result.getInt("fk_idpais"));
+                player.setEdad(result.getInt("edad"));
+                player.setAltura(result.getInt("altura"));
+                player.setPeso(result.getInt("peso"));
+                player.setFk_hotel(result.getInt("fk_hotel"));
+                player.setFk_equipo(result.getInt("fk_equipo"));
+                player.setPosicion(result.getString("posicion"));
+                player.setNivel(result.getInt("nivel"));
 
-                System.out.println ("\nID Maestro: " + id);
-                System.out.println("Nombre Maestro: " +  nombre);
-                System.out.println("Apellido Paterno: " + ap_pat);
-                System.out.println("Apellido Materno: " + ap_mat);
+                System.out.println ("\nCURP: "+ player.getCurp());
+                System.out.println("Nombre: " +  player.getNombre_comp());
+                System.out.println("Pais: " + player.getFk_idpais());
+                System.out.println("Edad: " + player.getEdad());
+                System.out.println("Altura: " + player.getAltura());
+                System.out.println("Peso: " + player.getPeso());
+                System.out.println("Hotel donde se hospeda: " + player.getFk_hotel());
+                System.out.println("Equipo donde pertenece: " + player.getFk_equipo());
+                System.out.println("Posicion: " + player.getPosicion());
+                System.out.println("Nivel: " + player.getNivel());
             }
         }
         catch (SQLException e)

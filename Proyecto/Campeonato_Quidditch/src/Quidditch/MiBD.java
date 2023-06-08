@@ -5,7 +5,7 @@ public class MiBD
 {
     private static String user = "postgres"; //User de la BD
     private static String pswd = "hola1234"; //Password de la BD
-    private static String bd = "Campeonato_quidditch"; //Nombre de la BD
+    private static String bd = "Campeonato_QuidditchSQL"; //Nombre de la BD
     private static String server = "jdbc:postgresql://localhost:5432/"+bd; //Llamando a nuestro server de BD
     private static String driver = "org.postgresql.Driver";//Driver que permite conectarse con PostgreSQL
     private static Connection con = null; //Para verificar la conexión
