@@ -7,41 +7,6 @@ create table PAIS (
     constraint pk_idpais primary key (idpais)
 );
 
-create table EQUIPO (
-    idequipo int not null,
-    nombre varchar(100) not null,
-    camp_mund varchar(100),
-    jugada_esp varchar(100),
-    copas_win int,
-    num_jugadores int,
-    constraint pk_idequipo primary key (idequipo)
-);
-
-create table PARTICIPANTE (
-    curp varchar(100) not null,
-    nombre_comp varchar(100) not null,
-    fk_idpais int not null,
-    edad int,
-    altura int,
-    peso int,
-    constraint pk_curp primary key (curp),
-    foreign key (fk_idpais) references PAIS(idpais)
-);
-
-create table JUGADOR (
-    fk_equipo int not null,
-    posicion varchar(100),
-    nivel int,
-    foreign key (fk_equipo) references EQUIPO(idequipo)
-)
-    INHERITS (PARTICIPANTE);
-
-create table ARBITRO (
-    idarbitro int not null,
-    direccion varchar(100),
-    num_tel bigint
-)
-    INHERITS (PARTICIPANTE);
 
 create table HOTEL(
     rfc int not null,
@@ -60,6 +25,46 @@ create table ESTADIO (
     constraint pf_idestadio primary key (idestadio),
     foreign key (fk_qhotel) references HOTEL(rfc)
 );
+
+create table EQUIPO (
+    idequipo int not null,
+    nombre varchar(100) not null,
+    camp_mund varchar(100),
+    jugada_esp varchar(100),
+    copas_win int,
+    num_jugadores int,
+    constraint pk_idequipo primary key (idequipo)
+);
+
+
+create table PARTICIPANTE (
+    curp varchar(100) not null,
+    nombre_comp varchar(100) not null,
+    fk_idpais int not null,
+    edad int,
+    altura int,
+    peso int,
+    fk_hotel int,
+    constraint pk_curp primary key (curp),
+    foreign key (fk_idpais) references PAIS(idpais),
+    foreign key (fk_hotel) references HOTEL(rfc)
+);
+
+create table ARBITRO (
+    idarbitro int not null UNIQUE,
+    direccion varchar(100),
+    num_tel bigint
+)
+    INHERITS (PARTICIPANTE);
+
+create table JUGADOR (
+    fk_equipo int not null,
+    posicion varchar(100),
+    nivel int,
+    foreign key (fk_equipo) references EQUIPO(idequipo)
+)
+    INHERITS (PARTICIPANTE);
+
 
 create table PARTIDO (
     codigo int not null,
