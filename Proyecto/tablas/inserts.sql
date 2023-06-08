@@ -77,7 +77,87 @@ INSERT INTO PARTICIPANTE VALUES ('B9012', 'Thaddeus Blackwood', 8, 18, 1.75, 87)
 INSERT INTO PARTICIPANTE VALUES ('C3456', 'Beatrix Ravensdale', 8, 20, 1.64, 60);
 INSERT INTO PARTICIPANTE VALUES ('D7890', 'Orion Flintwood', 8, 19, 1.74, 69);
 --------ARBITROS-------
-INSERT INTO PARTICIPANTE VALUES ('E2345', 'Elara Nightshade', 2, 35, 1.62, 73);
-INSERT INTO PARTICIPANTE VALUES ('F6789', 'Caspian Whitewood', 4, 28, 1.79, 87);
-INSERT INTO PARTICIPANTE VALUES ('G0123', 'Luna Stargazer', 6, 52, 1.75, 72);
-INSERT INTO PARTICIPANTE VALUES ('H4567', 'Maximilian Ravenscar', 8, 48, 1.83, 96);
+INSERT INTO PARTICIPANTE VALUES ('2345', 'Elara Nightshade', 2, 35, 1.62, 73);
+INSERT INTO PARTICIPANTE VALUES ('6789', 'Caspian Whitewood', 4, 28, 1.79, 87);
+INSERT INTO PARTICIPANTE VALUES ('0123', 'Luna Stargazer', 6, 52, 1.75, 72);
+INSERT INTO PARTICIPANTE VALUES ('4567', 'Maximilian Ravenscar', 8, 48, 1.83, 96);
+
+-------TABLA DE JUGADOR----
+INSERT INTO JUGADOR VALUES (1,'Guardian',2),
+(1,'Buscador',2),
+(1,'Golpeador',3),
+(1,'Golpeador',1),
+(1,'Cazador',2),
+(1,'Cazador',2),
+(1,'Cazador',1),
+(2,'Guardian',3),
+(2,'Buscador',1),
+(2,'Golpeador',2),
+(2,'Golpeador',1),
+(2,'Cazador',3),
+(2,'Cazador',3),
+(2,'Cazador',1),
+(3,'Guardian',2),
+(3,'Buscador',3),
+(3,'Golpeador',2),
+(3,'Golpeador',2),
+(3,'Cazador',1),
+(3,'Cazador',2),
+(3,'Cazador',1),
+(4,'Guardian',3),
+(4,'Buscador',1),
+(4,'Golpeador',2),
+(4,'Golpeador',2),
+(4,'Cazador',3),
+(4,'Cazador',1),
+(4,'Cazador',2),
+(5,'Guardian',2),
+(5,'Buscador',2),
+(5,'Golpeador',3),
+(5,'Golpeador',1),
+(5,'Cazador',2),
+(5,'Cazador',2),
+(5,'Cazador',1),
+(6,'Guardian',3),
+(6,'Buscador',3),
+(6,'Golpeador',2),
+(6,'Golpeador',1),
+(6,'Cazador',3),
+(6,'Cazador',1),
+(6,'Cazador',2),
+(7,'Guardian',3),
+(7,'Buscador',2),
+(7,'Golpeador',2),
+(7,'Golpeador',2),
+(7,'Cazador',2),
+(7,'Cazador',3),
+(7,'Cazador',1),
+(8,'Guardian',2),
+(8,'Buscador',2),
+(8,'Golpeador',2),
+(8,'Golpeador',3),
+(8,'Cazador',2),
+(8,'Cazador',3),
+(8,'Cazador',1),
+
+-----------Tabla ARBITRO-----
+INSERT INTO ARBITRO VALUES ('123','123 Maple Street, Toronto, Ontario, Canada',14165551234),
+('456','Hauptstraße 1, Berlin, Alemania',49305555678),
+('789','456 Mahatma Gandhi Road, Mumbai, India', 912255556789),
+('012','Avenida Juárez 789, CDMX, Mexico',525555551234);
+
+-----------Tabla HOTEL------- id, nombre, numero cel, direccion y fecha de aloj
+INSERT INTO HOTEL VALUES (777, 'El Caldero Chorreante', 442012345678, 'Calle de los Magos 456, Londres, Reino Unido', '22 de Marzo al 26 de Marzo'),
+(333, 'La Lechucería', 4413198765432, 'Avenida del Búho 789, Hogsmeade, Escocia', '28 de Marzo al 6 de Febrero');
+
+-----------Tabla ESTADIO---- ID, IDHOTEL, NOMBRE, CAPACIDAD
+INSERT INTO ESTADIO VALUES (12345, 777, 'Estadio de Quidditch Cresta de Dragon',30000),
+(67890, 777, 'Estadio de Quidditch Bosque Perdido',40000),
+(23456, 333, 'Estadio de Quidditch Colina de las Lechuzas',25000),
+(78901, 333, 'Estadio de Quidditch Lago Negro',35000);
+
+-----------Tabla PARTIDO----- ID, FK ARB, FK ESTADIO, FKEQUIPO WIN
+INSERT INTO PARTIDO VALUES (12345, 2345, 12345, 1),
+(67890, 0789, 67890, 2),
+(23456, , 23456, 2),
+

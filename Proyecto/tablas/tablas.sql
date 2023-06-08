@@ -39,14 +39,14 @@ create table JUGADOR (
 create table ARBITRO (
     idarbitro int not null,
     direccion varchar(100),
-    nul_tel int
+    num_tel bigint
 )
     INHERITS (PARTICIPANTE);
 
 create table HOTEL(
     rfc int not null,
     nhotel varchar(100) not null,
-    num_tel int,
+    num_tel bigint,
     direccion varchar(100),
     fecha_aloj varchar(100),
     constraint pk_rfc primary key (rfc)
