@@ -77,10 +77,10 @@ INSERT INTO PARTICIPANTE VALUES ('B9012', 'Thaddeus Blackwood', 8, 18, 1.75, 87)
 INSERT INTO PARTICIPANTE VALUES ('C3456', 'Beatrix Ravensdale', 8, 20, 1.64, 60);
 INSERT INTO PARTICIPANTE VALUES ('D7890', 'Orion Flintwood', 8, 19, 1.74, 69);
 --------ARBITROS-------
-INSERT INTO PARTICIPANTE VALUES ('2345', 'Elara Nightshade', 2, 35, 1.62, 73);
-INSERT INTO PARTICIPANTE VALUES ('6789', 'Caspian Whitewood', 4, 28, 1.79, 87);
-INSERT INTO PARTICIPANTE VALUES ('0123', 'Luna Stargazer', 6, 52, 1.75, 72);
-INSERT INTO PARTICIPANTE VALUES ('4567', 'Maximilian Ravenscar', 8, 48, 1.83, 96);
+INSERT INTO PARTICIPANTE VALUES ('23A45', 'Elara Nightshade', 2, 35, 1.62, 73);
+INSERT INTO PARTICIPANTE VALUES ('67A89', 'Caspian Whitewood', 4, 28, 1.79, 87);
+INSERT INTO PARTICIPANTE VALUES ('01A23', 'Luna Stargazer', 6, 52, 1.75, 72);
+INSERT INTO PARTICIPANTE VALUES ('45A67', 'Maximilian Ravenscar', 8, 48, 1.83, 96);
 
 -------TABLA DE JUGADOR----
 INSERT INTO JUGADOR VALUES (1,'Guardian',2),
@@ -157,7 +157,39 @@ INSERT INTO ESTADIO VALUES (12345, 777, 'Estadio de Quidditch Cresta de Dragon',
 (78901, 333, 'Estadio de Quidditch Lago Negro',35000);
 
 -----------Tabla PARTIDO----- ID, FK ARB, FK ESTADIO, FKEQUIPO WIN
-INSERT INTO PARTIDO VALUES (12345, 2345, 12345, 1),
-(67890, 0789, 67890, 2),
-(23456, , 23456, 2),
+INSERT INTO PARTIDO VALUES (1, 2345, 12345, 1),
+(2, 0789, 67890, 2),
+(3, 0123, 23456, 3),
+(4, 4567, 78901, 8),
+(5, 2345, 12345, 1),
+(6, 0789, 67890, 2),
+(7, 0123, 23456, 5),
+(8, 4567, 78901, 6),
+(9, 2345, 12345, 1),
+(10, 0789, 67890, 4),
+(11, 0123, 23456, 7),
+(12, 4567, 78901, 6),
+(13, 2345, 12345, 4),
+(14, 0789, 67890, 2),
+(15, 0123, 23456, 8),
+(16, 4567, 78901, 6),
+(17, 2345, 12345, 5),
+(18, 0789, 67890, 6),
+(19, 0123, 23456, 3),
+(20, 4567, 78901, 7),
+(21, 2345, 12345, 1),
+(22, 0789, 67890, 1),
+(23, 0123, 23456, 7),
+(24, 4567, 78901, 8),
+(25, 2345, 12345, 6),
+(26, 0789, 67890, 1),
+(27, 0123, 23456, 6),
+(28, 2345, 12345, 1);
 
+-----------Tabla MOV_PROHIBIDOS----(id,fkpartido,nombremov,cantidad,fkmoveq)
+INSERT INTO MOV_PROHIBIDOS VALUES (1,2,'Golpe intencional',2,5),
+(2,4,'Obstruccion de camino',1,4),
+(3,8,'Agarrar escoba contraria',1,7),
+(4,15,'Intimidacion',1,5),
+(5,20,'Abandono intencional',1,4),
+(6,27,'Uzo de hechizos',1,8);

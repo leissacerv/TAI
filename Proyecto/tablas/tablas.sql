@@ -63,7 +63,7 @@ create table ESTADIO (
 
 create table PARTIDO (
     codigo int not null,
-    fk_arbitro varchar (100),
+    fk_arbitro int not null,
     fk_qestadio int not null,
     fk_equipo_win int not null,
     constraint pk_codigo primary key (codigo),
@@ -74,7 +74,11 @@ create table PARTIDO (
 
 create table MOV_PROHIBIDOS (
 	idmov int not null,
+    fk_partido int not null,
 	nombre_mov varchar(100),
 	cant_mov int,
-	constraint pk_idmov primary key (idmov)
+    fk_moveq int,
+	constraint pk_idmov primary key (idmov),
+    foreign key (fk_partido) references PARTIDO(codigo),
+    foreign key (fk_moveq) references EQUIPO(idequipo)
 );
