@@ -8,9 +8,7 @@ create table PARTIDO (
     foreign key (fk_equipo_win) references EQUIPO(idequipo),
     foreign key (fk_arbitro) references ARBITRO(idarbitro)
 );
-
-INSERT INTO PARTIDO VALUES 
-(1, 123, 12345, 1),
+INSERT INTO PARTIDO VALUES (1, 123, 12345, 1),
 (2, 456, 67890, 2),
 (3, 789, 23456, 3),
 (4, 812, 78901, 8),

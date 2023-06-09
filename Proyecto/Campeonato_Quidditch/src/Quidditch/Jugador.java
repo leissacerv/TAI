@@ -7,9 +7,10 @@ package Quidditch;
 public class Jugador {
     private int fk_idpais;
     private int edad;
-    private int altura;
+    private float altura;
     private int peso;
     private int fk_hotel;
+    private String estado;
     private int fk_equipo;
     private int nivel;
     private String curp;
@@ -23,24 +24,26 @@ public class Jugador {
         this.curp = curp;
     }
 
-    public Jugador(int fk_idpais, int edad, int altura, int peso, int fk_hotel, int fk_equipo, int nivel, String nombre_comp, String posicion) {
+    public Jugador(int fk_idpais, int edad, float altura, int peso, int fk_hotel, String estado, int fk_equipo, int nivel, String nombre_comp, String posicion) {
         this.fk_idpais = fk_idpais;
         this.edad = edad;
         this.altura = altura;
         this.peso = peso;
         this.fk_hotel = fk_hotel;
+        this.estado= estado;
         this.fk_equipo = fk_equipo;
         this.nivel = nivel;
         this.nombre_comp = nombre_comp;
         this.posicion = posicion;
     }
 
-    public Jugador(int fk_idpais, int edad, int altura, int peso, int fk_hotel, int fk_equipo, int nivel, String curp, String nombre_comp, String posicion) {
+    public Jugador(int fk_idpais, int edad, float altura, int peso, int fk_hotel,String estado, int fk_equipo, int nivel, String curp, String nombre_comp, String posicion) {
         this.fk_idpais = fk_idpais;
         this.edad = edad;
         this.altura = altura;
         this.peso = peso;
         this.fk_hotel = fk_hotel;
+        this.estado = estado;
         this.fk_equipo = fk_equipo;
         this.nivel = nivel;
         this.curp = curp;
@@ -64,11 +67,11 @@ public class Jugador {
         this.edad = edad;
     }
 
-    public int getAltura() {
+    public float getAltura() {
         return altura;
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(float altura) {
         this.altura = altura;
     }
 
@@ -88,6 +91,14 @@ public class Jugador {
         this.fk_hotel = fk_hotel;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+    
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
     public int getFk_equipo() {
         return fk_equipo;
     }
@@ -130,7 +141,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + "fk_idpais=" + fk_idpais + ", edad=" + edad + ", altura=" + altura + ", peso=" + peso + ", fk_hotel=" + fk_hotel + ", fk_equipo=" + fk_equipo + ", nivel=" + nivel + ", curp=" + curp + ", nombre_comp=" + nombre_comp + ", posicion=" + posicion + '}';
+        return "Jugador{" + "fk_idpais=" + fk_idpais + ", edad=" + edad + ", altura=" + altura + ", peso=" + peso + ", fk_hotel=" + fk_hotel + ", estado=" + estado + ", fk_equipo=" + fk_equipo + ", nivel=" + nivel + ", curp=" + curp + ", nombre_comp=" + nombre_comp + ", posicion=" + posicion + '}';
     }
     
     
