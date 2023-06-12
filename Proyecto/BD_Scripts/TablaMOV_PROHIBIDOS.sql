@@ -8,6 +8,7 @@ create table MOV_PROHIBIDOS (
     foreign key (fk_partido) references PARTIDO(codigo),
     foreign key (fk_moveq) references EQUIPO(idequipo)
 );
+
 INSERT INTO MOV_PROHIBIDOS VALUES (1,2,'Golpe intencional',2,5),
 (2,4,'Obstruccion de camino',1,4),
 (3,8,'Agarrar escoba contraria',1,7),

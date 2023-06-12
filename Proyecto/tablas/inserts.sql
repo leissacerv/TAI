@@ -30,13 +30,13 @@ INSERT INTO EQUIPO VALUES (8,'Valquirias del Viento',3,'Lazo de las Hidras',2,7)
 
 
 -----------Tabla ARBITRO-----
-INSERT INTO ARBITRO VALUES ('23A45', 'Elara Nightshade', 2, 35, 1.62, 73, 777,'Habilitado', 123,'123 Maple Street, Toronto, Ontario, Canada',14165551234),
+INSERT INTO ARBITRO (curp, nombre_comp, fk_idpais, edad, altura, peso, fk_hotel, estado, idarbitro,direccion,num_tel)VALUES ('23A45', 'Elara Nightshade', 2, 35, 1.62, 73, 777,'Habilitado', 123,'123 Maple Street, Toronto, Ontario, Canada',14165551234),
 ('67A89', 'Caspian Whitewood', 4, 28, 1.79, 87, 777,'Habilitado', 456,'Hauptstraße 1, Berlin, Alemania',49305555678),
 ('81A23', 'Luna Stargazer', 6, 52, 1.75, 72, 333,'Habilitado', 789,'456 Mahatma Gandhi Road, Mumbai, India', 912255556789),
 ('45A67', 'Maximilian Ravenscar', 8, 48, 1.83, 96, 333,'Habilitado', 812,'Avenida Juárez 789, CDMX, Mexico',525555551234);
 
 -------TABLA DE JUGADOR----
-INSERT INTO JUGADOR VALUES ('A1234', 'Alistair Blackthorn', 1, 19, 1.67, 60, 777,'Habilitado', 1,'Guardian',2),
+INSERT INTO JUGADOR (curp, nombre_comp, fk_idpais, edad, altura, peso, fk_hotel, estado, fk_equipo, posicion, nivel) VALUES ('A1234', 'Alistair Blackthorn', 1, 19, 1.67, 60, 777,'Habilitado', 1,'Guardian',2),
 ('B5678', 'Gwendolyn Fairchild', 1, 21, 1.57, 56, 777,'Habilitado', 1,'Buscador',2),
 ('C9012', 'Ron Hawthorne', 1, 18, 1.75, 76, 777,'Habilitado', 1,'Golpeador',3),
 ('D3456', 'Evangeline Moonshadow', 1, 22, 1.59, 65, 777,'Habilitado', 1,'Golpeador',1),

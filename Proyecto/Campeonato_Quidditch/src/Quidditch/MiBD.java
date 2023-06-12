@@ -9,7 +9,11 @@ public class MiBD
     private static String server = "jdbc:postgresql://localhost:5432/"+bd; //Llamando a nuestro server de BD
     private static String driver = "org.postgresql.Driver";//Driver que permite conectarse con PostgreSQL
     private static Connection con = null; //Para verificar la conexión
+    
+    PreparedStatement ps;
+    ResultSet rs;
 
+    
     public MiBD()
     {
         try
@@ -64,5 +68,9 @@ public class MiBD
         {
             e.printStackTrace();
         }
+    }
+    
+    public Connection getConnection() {
+        return con;
     }
 }

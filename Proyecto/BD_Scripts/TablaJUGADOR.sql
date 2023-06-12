@@ -5,7 +5,9 @@ create table JUGADOR (
     foreign key (fk_equipo) references EQUIPO(idequipo)
 )
     INHERITS (PARTICIPANTE);
-INSERT INTO JUGADOR VALUES ('A1234', 'Alistair Blackthorn', 1, 19, 1.67, 60, 777,'Habilitado', 1,'Guardian',2),
+
+
+INSERT INTO JUGADOR (curp, nombre_comp, fk_idpais, edad, altura, peso, fk_hotel, estado, fk_equipo, posicion, nivel) VALUES ('A1234', 'Alistair Blackthorn', 1, 19, 1.67, 60, 777,'Habilitado', 1,'Guardian',2),
 ('B5678', 'Gwendolyn Fairchild', 1, 21, 1.57, 56, 777,'Habilitado', 1,'Buscador',2),
 ('C9012', 'Ron Hawthorne', 1, 18, 1.75, 76, 777,'Habilitado', 1,'Golpeador',3),
 ('D3456', 'Evangeline Moonshadow', 1, 22, 1.59, 65, 777,'Habilitado', 1,'Golpeador',1),
