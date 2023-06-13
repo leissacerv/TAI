@@ -15,7 +15,7 @@ public class Main
         {
             while(result.next())
             {
-                player.setNum_part(result.getInt("num_part"));
+                
                 player.setCurp(result.getString("curp"));
                 player.setNombre_comp(result.getString("nombre_comp"));
                 player.setFk_idpais(result.getInt("fk_idpais"));
@@ -25,8 +25,8 @@ public class Main
                 player.setFk_hotel(result.getInt("fk_hotel"));
                 player.setEstado(result.getString("estado"));
                 
-                System.out.println("\nNumero de participante: " + player.getNum_part());
-                System.out.println ("CURP: "+ player.getCurp());
+                
+                System.out.println ("\nCURP: "+ player.getCurp());
                 System.out.println("Nombre: " +  player.getNombre_comp());
                 System.out.println("Pais: " + player.getFk_idpais());
                 System.out.println("Edad: " + player.getEdad());

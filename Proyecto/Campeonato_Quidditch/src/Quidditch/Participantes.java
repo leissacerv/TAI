@@ -2,6 +2,7 @@ package Quidditch;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +43,6 @@ public class Participantes extends javax.swing.JFrame {
         cbxHotel = new javax.swing.JComboBox<>();
         cbxEstado = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
-        txtBuscar = new javax.swing.JTextField();
 
         jTextField6.setText("jTextField6");
 
@@ -107,14 +107,14 @@ public class Participantes extends javax.swing.JFrame {
             }
         });
 
-        cbxHotel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona hotel", "777", "333" }));
+        cbxHotel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona hotel", "1", "2" }));
         cbxHotel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxHotelActionPerformed(evt);
             }
         });
 
-        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estado", "Habilitado", "Deshabilitado" }));
+        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona estado", "Habilitado", "Deshabilitado" }));
         cbxEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxEstadoActionPerformed(evt);
@@ -128,73 +128,64 @@ public class Participantes extends javax.swing.JFrame {
             }
         });
 
-        txtBuscar.setEnabled(false);
-        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2))
-                            .addGap(61, 61, 61)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNombre)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(txtCurp, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnBuscar))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel8))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtEdad)
-                                .addComponent(txtAltura)
-                                .addComponent(txtPeso)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cbxPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbxHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(61, 61, 61)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtCurp)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEdad)
+                                    .addComponent(txtAltura)
+                                    .addComponent(txtPeso)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbxPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbxHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addComponent(btnGuardar)
                         .addGap(18, 18, 18)
                         .addComponent(btnModificar)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnLimpiar)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(364, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtCurp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -223,13 +214,13 @@ public class Participantes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnLimpiar)
+                    .addComponent(btnGuardar)
                     .addComponent(btnModificar)
-                    .addComponent(btnGuardar))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnLimpiar))
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -288,7 +279,20 @@ public class Participantes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        try{
+            PreparedStatement ps= mibd.getConnection().prepareStatement("UPDATE participante set estado = ? where curp = ?");
+            //ResultSet rs= null;
+            ps.setString(1, "Inhabilitado");
+            ps.setString(2, txtCurp.getText());
+            
+            ps.executeUpdate();
+ 
+            
+            JOptionPane.showMessageDialog(null, "Participante eliminado ^.^");
+        }catch(SQLException ex){
+            Logger.getLogger(Participantes.class.getName()).log(Level.SEVERE,null,ex);
+            JOptionPane.showMessageDialog(null,"Participante no eliminado");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cbxPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPaisActionPerformed
@@ -308,19 +312,71 @@ public class Participantes extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxEstadoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        
+        try{
+            PreparedStatement ps= mibd.getConnection().prepareStatement("SELECT * from Participante WHERE curp=?");
+            ResultSet rs= null;
+            ps.setString(1, txtCurp.getText());
+            
+            rs=ps.executeQuery();
+            
+            if(rs.next()){
+                txtCurp.setText(rs.getString("curp"));
+                txtNombre.setText(rs.getString("nombre_comp"));
+                cbxPais.setSelectedIndex(rs.getInt("fk_idpais"));
+                txtEdad.setText(rs.getString("edad"));
+                txtAltura.setText(rs.getString("altura"));
+                txtPeso.setText(rs.getString("Peso"));
+                cbxHotel.setSelectedIndex(rs.getInt("fk_hotel"));
+                cbxEstado.setSelectedItem(rs.getString("estado"));
+            }
+            
+            JOptionPane.showMessageDialog(null, "Participante encontrado ^.^");
+        }catch(SQLException ex){
+            Logger.getLogger(Participantes.class.getName()).log(Level.SEVERE,null,ex);
+            JOptionPane.showMessageDialog(null,"Participante no encontrado unu");
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarActionPerformed
-
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        String fk_idpais=cbxPais.getSelectedItem().toString();
+        String fk_hotel=cbxHotel.getSelectedItem().toString();
+        String estado=cbxEstado.getSelectedItem().toString();
+        String edad=txtEdad.getText();
+        String peso=txtPeso.getText();
+        
+        try {
+            PreparedStatement ps= mibd.getConnection().prepareStatement("UPDATE PARTICIPANTE SET nombre_comp=?, fk_idpais=?, edad=?, altura=?, peso=?, fk_hotel=?, estado=? WHERE curp=?");
+            ps.setString(1,txtNombre.getText());
+            ps.setInt(2,Integer.parseInt(fk_idpais));  //  i   Integer.parseInt()
+            ps.setInt(3,Integer.parseInt(edad));
+            ps.setFloat(4, Float.parseFloat(txtAltura.getText())); // Float.parseFloat()
+            ps.setInt(5,Integer.parseInt(peso));
+            ps.setInt(6,Integer.parseInt(fk_hotel));
+            ps.setString(7,cbxEstado.getSelectedItem().toString());
+            ps.setString(8,txtCurp.getText());
+            
+            int status = ps.executeUpdate();
+            
+            if (status == 1) { 
+                JOptionPane.showMessageDialog(null,"Se modifico correctamente");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Participantes.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,"No se pudieron modificar datos");
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
+        txtCurp.setText("");
+        txtNombre.setText("");
+        cbxPais.setSelectedIndex(0);
+        txtEdad.setText("");
+        txtAltura.setText("");
+        txtPeso.setText("");
+        cbxHotel.setSelectedIndex(0);
+        cbxEstado.setSelectedIndex(0);
+        
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
 
@@ -344,7 +400,6 @@ public class Participantes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField txtAltura;
-    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCurp;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtNombre;

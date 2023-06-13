@@ -6,8 +6,7 @@ create table ESTADIO (
     constraint pf_idestadio primary key (idestadio),
     foreign key (fk_qhotel) references HOTEL(rfc)
 );
------------Tabla ESTADIO---- ID, IDHOTEL, NOMBRE, CAPACIDAD
-INSERT INTO ESTADIO VALUES (12345, 777, 'Cresta de Dragon',30000),
-(67890, 777, 'Bosque Perdido',40000),
-(23456, 333, 'Colina de las Lechuzas',25000),
-(78901, 333, 'Lago Negro',35000);
+INSERT INTO ESTADIO VALUES (12345, 1, 'Cresta de Dragon',30000),
+(67890, 1, 'Bosque Perdido',40000),
+(23456, 2, 'Colina de las Lechuzas',25000),
+(78901, 2, 'Lago Negro',35000);

@@ -1,7 +1,6 @@
 package Quidditch;
 
 public class Participante {
-    private int num_part;
     private String curp;
     private String nombre_comp;
     private int fk_idpais;
@@ -18,8 +17,8 @@ public class Participante {
         this.curp = curp;
     }
 
-    public Participante(String curp,String nombre_comp, int fk_idpais, int edad, float altura, int peso, int fk_hotel, String estado) {
-        this.curp = curp;
+    public Participante(String nombre_comp, int fk_idpais, int edad, float altura, int peso, int fk_hotel, String estado) {
+        
         this.nombre_comp = nombre_comp;
         this.fk_idpais = fk_idpais;
         this.edad = edad;
@@ -29,8 +28,7 @@ public class Participante {
         this.estado = estado;
     }
 
-    public Participante(int num_part, String curp, String nombre_comp, int fk_idpais, int edad, float altura, int peso, int fk_hotel, String estado) {
-        this.num_part = num_part;
+    public Participante(String curp, String nombre_comp, int fk_idpais, int edad, float altura, int peso, int fk_hotel, String estado) {
         this.curp = curp;
         this.nombre_comp = nombre_comp;
         this.fk_idpais = fk_idpais;
@@ -40,15 +38,6 @@ public class Participante {
         this.fk_hotel = fk_hotel;
         this.estado = estado;
     }
-
-    public int getNum_part() {
-        return num_part;
-    }
-
-    public void setNum_part(int num_part) {
-        this.num_part = num_part;
-    }
-    
 
     public String getCurp() {
         return curp;
@@ -116,7 +105,7 @@ public class Participante {
 
     @Override
     public String toString() {
-        return "Participante{"+ "Numero= " + num_part + "curp=" + curp + ", nombre_comp=" + nombre_comp + ", fk_idpais=" + fk_idpais + ", edad=" + edad + ", altura=" + altura + ", peso=" + peso + ", fk_hotel=" + fk_hotel + ", estado=" + estado + '}';
+        return "Participante{"+ "Curp=" + curp + ", nombre_comp=" + nombre_comp + ", fk_idpais=" + fk_idpais + ", edad=" + edad + ", altura=" + altura + ", peso=" + peso + ", fk_hotel=" + fk_hotel + ", estado=" + estado + '}';
     }  
 }
     
